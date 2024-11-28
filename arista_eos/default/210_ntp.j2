@@ -1,0 +1,5 @@
+{% if config_context['ntp_servers'] is defined %}
+{% for server in config_context['ntp_servers'] %}
+ntp server {{ server['address'] }}{% if 'priority' in server and server['priority'] %} prefer{% endif %}{{ '' }}
+{% endfor %}
+{% endif %}
